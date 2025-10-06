@@ -17,4 +17,10 @@ calcularPromedioNotas = function(){
     let cmpDecimales= promedio.toFixed(2);
     let mensaje = document.getElementById("lblPromedio");
     mensaje.innerHTML = "tu promedio es: " + cmpDecimales; 
+
+    if(cmpDecimales > 7){
+        mostrarImagen("imagen","gifExito.gif");
+    }else{
+        mostrarImagen("imagen","gifFracaso.gif");
+    }
 }
