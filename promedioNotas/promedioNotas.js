@@ -18,9 +18,17 @@ calcularPromedioNotas = function(){
     let mensaje = document.getElementById("lblPromedio");
     mensaje.innerHTML = "tu promedio es: " + cmpDecimales; 
 
-    if(cmpDecimales > 7){
+    if(cmpDecimales < 5 && cmpDecimales > 0){
+        mostrarTexto("resultado","REPROBADO");
+        mostrarImagen("imagen","gifFracaso.gif");
+    }else if(cmpDecimales >= 5 && cmpDecimales <= 8){
+        mostrarTexto("resultado","BUEN TRABAJO");
+        mostrarImagen("imagen","gifBuenTrabajo.gif");
+    }else if(cmpDecimales > 8 && cmpDecimales <= 10){
+        mostrarTexto("resultado","EXCELENTE");
         mostrarImagen("imagen","gifExito.gif");
-    }else{
+    }else {
+        mostrarTexto("resultado","DATOS INCORRECTOS !!");
         mostrarImagen("imagen","gifFracaso.gif");
     }
 }
