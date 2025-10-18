@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="condicionales.js"></script>
+        <script src="utilitarios.js"></script>
+    </head>
+    <body>
+        <div>
+            <h1>CONDICIONALES</h1>
+            <input type="text" id="tasa"/>
+            <h3 id="lblRespuesta"></h3>
+            <input type="button" value="valor tasa" onclick="calacularTasaInteres();"/>
+            
+            <h3>edad</h3>
+            <input type="text" id="capacidadPago"/>
+            <h3>ingresos</h3>
+            <input type="text" id="ingresos"/>
+            <h3>egresos</h3>
+            <input type="text" id="egresos"/>
+            <h3 id="lblCapacidad"></h3>
+            <input type="button" value="valor cuota" onclick="calcularCapacidadPago();"/>
+            <h3>descuento</h3>
+            <h3>precio</h3>
+            <input type="text" id="precio"/>
+            <h3>cantidad</h3>
+            <input type="text" id="cantidad"/>
+            <input type="button" value="aplicar descuento" onclick="calcularDescuento();"/>
+            <h3 id="valorPagar"></h3>
+            <h3>nivel de colesterol</h3>
+            <input type="text" id="colesterol"/>
+            <input type="button" value="medir colesterol" onclick="determinarColesterolLDL();"/>
+            <h3 id="valorColesterol"></h3>
+            <h3>contraseña</h3>
+            <input type="text" id="contraseña"/>
+            <input type="button" value="aceptar" onclick="validarClave();"/>
+            <input type="button" value="mayuscula" onclick="esMayuscula();"/>
+            <input type="button" value="minusculas" onclick="esMinuscula();"/>
+            <h3>dar permiso</h3>
+            <input type="text" id="matematicas"/>
+            <h3>notafisica</h3>
+            <input type="text" id="fisica"/>
+            <h3>geometria</h3>
+            <input type="text" id="geometria"/>
+            <input type="button" value="permiso" onclick="darPermiso();"/>
+            <input type="button" value="otorgar permiso" onclick="otorgarPermiso();"/>
+            <input type="button" value="dejar salir" onclick="dejarSalir();"/>
+
+
+        </div>
+        
+
+    </body>
+</html>
