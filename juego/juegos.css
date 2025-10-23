@@ -1,0 +1,82 @@
+
+
+body {
+   
+    font-family: Verdana, Geneva, sans-serif;
+    background-color: #ffffff; 
+    color: #333;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+   
+    color: #333;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+
+#marcador {
+    margin: 20px auto;
+    padding: 10px 20px;
+    border: 1px solid #ccc; /* Borde simple */
+    width: 300px;
+}
+
+#marcador p {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+
+.opcion-usuario {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.opcion-usuario img {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    transition: border-color 0.1s;
+}
+
+.opcion-usuario img:hover {
+    border-color: #000;
+}
+
+
+#imgComputador {
+    width: 100px;
+    height: 100px;
+    border: 1px dashed #999;
+    margin-top: 10px;
+}
+
+
+#resultadoMensaje {
+    font-size: 1.5em;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.mensaje-ganador {
+    color: green;
+    border: 1px solid green;
+}
+
+.mensaje-perdedor {
+    color: red;
+    border: 1px solid red;
+}
+
+.mensaje-empate {
+    color: orange;
+    border: 1px solid orange;
+}
