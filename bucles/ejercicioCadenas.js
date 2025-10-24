@@ -36,3 +36,32 @@ invertirCadena = function(cadena){
     return resultado;
 
 }
+buscarLetra = function(cadena,letra){
+    let letraInterada;
+    let existeLetra = false;
+    for(let i = 0;i < cadena.length;i++){
+        letraInterada = cadena.charAt(i);
+        if(letraInterada == letra){
+            existeLetra = true;
+        }
+    }
+    if(existeLetra == true){
+        return true;
+    }else{
+        return false;
+    }
+
+}
+contarMayusculas = function(cadena){
+    let letra;
+    let contadorMayusculas;
+    for (let i = 0;i < cadena.length;i++){
+        letra = cadena.charAt(i);
+        if(esMayuscula(letra)){
+            contadorMayusculas ++;
+        }
+
+    }
+    console.log(contadorMayusculas);
+
+}
