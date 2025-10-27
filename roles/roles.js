@@ -121,8 +121,41 @@ guardar = function(){
     }
 
     bloquearCajaTexto();
+    esNuevo = false;
+
+    let cmpEmpleado = buscarEmpleado(empleado.cedula);
+    for( let i = 0; i < empleados.length;i++){
+        cmpEmpleado = empleados[i];
+        mostrarTextoEnCaja("txtCedula",cmpEmpleado.cedula);
+        mostrarTextoEnCaja("txtNombre",cmpEmpleado.nombre);
+        mostrarTextoEnCaja("txtApellido",cmpEmpleado.apellido);
+        mostrarTextoEnCaja("txtSueldo",cmpEmpleado.sueldo);
+        alert(" EMPLEADO MODIFICADO EXITOSAMENTE");
+    }
+    bloquearCajaTexto();
     
 }
+
+ejecutarBusqueda = function(){
+    let valorCedula = recuperarTexto("txtBusquedaCedula");
+    let empleado = buscarEmpleado(valorCedula);
+    if(empleado == null){
+        alert("CLIENTE NO ENCONTRADO");
+
+    }else{
+        mostrarTextoEnCaja("txtCedula",empleado.cedula);
+        mostrarTextoEnCaja("txtNombre",empleado.nombre);
+        mostrarTextoEnCaja("txtApellido",empleado.apellido);
+        mostrarTextoEnCaja("txtSueldo",empleado.sueldo);
+    }
+    deshabilitarComponente("txtCedula");
+    habilitarComponente("txtNombre");
+    habilitarComponente("txtApellido");
+    habilitarComponente("txtSueldo");
+    
+
+}
+
 bloquearCajaTexto = function(){
     deshabilitarComponente("txtCedula");
     deshabilitarComponente("txtNombre");
@@ -162,4 +195,13 @@ mostrarOpcionResumen = function(){
     mostrarComponente("divResumen");
     ocultarComponente("divEmpleado");
     ocultarComponente("divRol");
+}
+limpiar = function(){
+    mostrarTextoEnCaja("txtCedula","");
+    mostrarTextoEnCaja("txtNombre","");
+    mostrarTextoEnCaja("txtApellido","");
+    mostrarTextoEnCaja("txtSueldo","");
+    esNuevo = false
+    bloquearCajaTexto();
+
 }
