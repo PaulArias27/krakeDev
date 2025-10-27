@@ -28,6 +28,110 @@ mostrarEmpleado = function(){
     cmpTabla.innerHTML = contenidoTabla;
 }
 
+buscarEmpleado = function(cedula){
+    let elementoEmpleado;
+    let clienteEncontrado = null;
+    for(let i = 0; i < empleados.length;i++){
+        elementoEmpleado = empleados[i];
+        if(elementoEmpleado.cedula == cedula){
+            clienteEncontrado = elementoEmpleado;
+            break
+        }
+    }
+    return clienteEncontrado;
+}
+
+agregarEmpleado = function(empleado){
+    let resultado;
+    resultado = buscarEmpleado(empleado.cedula);
+    if(resultado == null){
+        empleados.push(empleado);
+        return true;
+    }else{
+        return false;
+    }
+
+}
+
+guardar = function(){
+    let cmpCedula = recuperarTexto("txtCedula");
+    let cmpCedula1 = cmpCedula.length;
+    let hayErrores = false;
+    if(cmpCedula1 >= 11 ){
+        mostrarTexto("lblErrorCedula","LA CEDULA TIENE QUE TENER EXACTAMENTE 10 CARACTERES");
+    }else if(cmpCedula == ""){
+        mostrarTexto("lblErrorCedula","CAMPO OBLIGATORIO");
+    }else if(hayErrores == false){
+        mostrarTexto("lblErrorCedula","");
+    }
+
+    let cmpNombre = recuperarTexto("txtNombre");
+    let cmpNombre1 = cmpNombre.length;
+    let nombreMayusculas = cmpNombre.toUpperCase();
+    let hayErrores2 = false;
+    if(cmpNombre1 > 0 && cmpNombre1 < 3){
+        mostrarTexto("lblErrorNombre"," DEBE TENER ALMENOS 3 CARACTERES");
+    }else if(cmpNombre != nombreMayusculas ){
+        mostrarTexto("lblErrorNombre","SOLO SE PERMITEN LETRAS MAYUSCULAS");
+    }else if(cmpNombre == ""){
+        mostrarTexto("lblErrorNombre","CAMPO OBLIGATORIO");
+    }else if(hayErrores2 == false){
+        mostrarTexto("lblErrorNombre","");
+    }
+
+    let cmpApellido= recuperarTexto("txtApellido");
+    let cmpApellido1 = cmpApellido.length;
+    let apellidoMayusculas = cmpApellido.toUpperCase();
+    let hayErrores3 = false;
+    if(cmpApellido1 > 0 && cmpApellido1 < 3){
+        mostrarTexto("lblErrorApellido"," DEBE TENER ALMENOS 3 CARACTERES");
+    }else if(cmpApellido != apellidoMayusculas ){
+        mostrarTexto("lblErrorApellido","SOLO SE PERMITEN LETRAS MAYUSCULAS");
+    }else if(cmpApellido == ""){
+        mostrarTexto("lblErrorApellido","CAMPO OBLIGATORIO");
+    }else if(hayErrores3 == false){
+        mostrarTexto("lblErrorApellido","");
+    }
+
+    let cmpSueldo =recuperarTexto("txtSueldo");
+    let cmpSueldoFlotante = parseFloat(cmpSueldo);
+    let hayErrores4 = false;
+    if(cmpSueldoFlotante < 400 || cmpSueldoFlotante > 5000){
+        mostrarTexto("lblErrorSueldo","DEBE SER UN SUELDO ENTRE 400 Y 5000");
+    }else if(cmpSueldo == ""){
+        mostrarTexto("lblErrorSueldo","CAMPO OBLIGATORIO");
+    }else if(hayErrores4 == false){
+        mostrarTexto("lblErrorSueldo","");
+    }
+
+    esNuevo = true;
+    let empleado = {
+        cedula:cmpCedula,
+        nombre:cmpNombre,
+        apellido:cmpApellido,
+        sueldo: cmpSueldo
+    };
+    let cmpAregarEmp = agregarEmpleado(empleado.cedula);
+    if(cmpAregarEmp != true){
+        empleados.push(empleado);
+        alert("EMPLEADO AGREGADO");
+        mostrarEmpleado();
+    }else{
+        alert("YA EXIXTE UN EMPLEADO CON CEDULA: "+empleado.cedula);
+    }
+
+    bloquearCajaTexto();
+    
+}
+bloquearCajaTexto = function(){
+    deshabilitarComponente("txtCedula");
+    deshabilitarComponente("txtNombre");
+    deshabilitarComponente("txtApellido");
+    deshabilitarComponente("txtSueldo");
+    deshabilitarComponente("btnGuardar");
+
+}
+
 ejecutarNuevo = function(){
     habilitarComponente("txtCedula");
     habilitarComponente("txtNombre");
