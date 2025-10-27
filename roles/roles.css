@@ -97,8 +97,41 @@ tbody tr:nth-child(odd) {
   td{
     text-align: center;
   }
+  .table-container{
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0 1);
+    overflow-x: auto;
+    max-width: 400px;
+    width: 100%;
+  }
   .areaTabla{
     margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 400px;
+  }
+  thead{
+    background: #4a90e2;
+    color: white;
+  }
+  th,td{
+    padding: 13px;
+    text-align: left;
+  }
+  th{
+    font-weight: 600;
+
+  }
+  tbody tr{
+    border-bottom:  1px solid #e0e0e0;
+    transition: background 0.2s;
+  }
+  tbody tr :nth-child(even){
+    background: #f9f9f9;
+  }
+  tbody tr :hover{
+    background: #eaf2ff;
   }
 .estiloBoton:hover {
     background-color:white; 
