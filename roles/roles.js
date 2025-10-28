@@ -5,6 +5,20 @@ let empleados = [
 ]
 let esNuevo = false;
 
+buscarPorRol = function(){
+    let buscarRol = recuperarTexto("txtBusquedaCedulaRol");
+     let empleado = buscarEmpleado(buscarRol);
+    if(empleado != null){
+        mostrarTexto("infoCedula",empleado.cedula);
+        mostrarTexto("infoSueldo",empleado.sueldo);
+        mostrarTexto("infoNombre",empleado.nombre +""+empleado.apellido);
+    }else{
+        alert("EL EMPLEADO NO EXISTE");
+    }
+
+}
+
+//empleado
 mostrarEmpleado = function(){
 
     let cmpTabla = document.getElementById("tablaEmpleados");
