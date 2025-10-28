@@ -5,6 +5,8 @@ let empleados = [
 ]
 let esNuevo = false;
 
+let roles = [];
+
 //rol de pago 
 
 buscarPorRol = function(){
@@ -41,6 +43,53 @@ buscarPorRol = function(){
     mostrarTexto ("infoIESS",calculoAporte);
     let cmpValorAPago = calcularValorAPagar(cmpSueldo,calculoAporte,descuentoFloat);
     mostrarTexto("infoPago",cmpValorAPago);
+    habilitarComponente("botonGuardar");
+ }
+ buscarRol = function(cedula){
+    for(let i = 0; i < roles.length; i++){
+        let rolActual = roles[i];
+        if (rolActual.cedula === cedula ){
+            return rolActual;
+        }else{
+            return null;
+        }
+    }   
+ }
+
+ agregarRol = function(rol){
+    let rolExistente = buscarRol(rol.cedula);
+    if(rolExistente == rol.cedula){
+        alert("ERROR !! ,YA EXISTE UN ROL CON LA CEDULA " + rol.cedula);
+    }else{
+        roles.push(rol);
+        alert("ROL AGREGADO CORRECTAMENTE CON CEDULA "+  rol.cedula);
+    }
+ }
+
+ calcularAporteEmpleador = function(sueldo){
+    let valorAporteEmpleador = sueldo * 11.15/100;
+    return valorAporteEmpleador;
+ }
+ guardarRol = function(){
+    let montoAPagar = recuperarTextoDiv("infoPago");
+    let montoAporte = recuperarTextoDiv("infoIESS");
+    let nombre = recuperarTextoDiv("infoNombre");
+    let cedula = recuperarTextoDiv("infoCedula");
+    let sueldo = recuperarTextoDiv("infoSueldo");
+    let cmpSueldo = parseInt(sueldo);
+    
+    let calculoAporteEmp = calcularAporteEmpleador(cmpSueldo);
+    let rol = {};
+    rol.cedula = cedula;
+    rol.nombre = nombre;
+    rol.sueldo = cmpSueldo;
+    rol.valorAPagar = montoAPagar;
+    rol.aporteEmpleado = montoAporte;
+    rol.aporteEmpleador = calculoAporteEmp;
+
+    agregarRol(rol);
+    alert("ROL AGREGADO EXITOSAMENTE");
+    deshabilitarComponente("botonGuardar");
  }
 
 
@@ -230,6 +279,7 @@ mostrarOpcionRol = function(){
     mostrarComponente("divRol");
     ocultarComponente("divEmpleado");
     ocultarComponente("divResumen");
+    deshabilitarComponente("botonGuardar");
 
 }
 mostrarOpcionResumen = function(){
