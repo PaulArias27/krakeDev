@@ -5,6 +5,8 @@ let empleados = [
 ]
 let esNuevo = false;
 
+//rol de pago 
+
 buscarPorRol = function(){
     let buscarRol = recuperarTexto("txtBusquedaCedulaRol");
      let empleado = buscarEmpleado(buscarRol);
@@ -17,6 +19,31 @@ buscarPorRol = function(){
     }
 
 }
+ calcularAporteEmpleado = function(sueldo){
+    let valorAporte = sueldo * 9.45/100;
+    return valorAporte;
+ }
+ calcularValorAPagar = function(sueldo,iess,descuento){
+    let valorAPagar = sueldo - iess - descuento;
+    return valorAPagar;
+
+ }
+ clacularRol = function(){
+    let sueldo = recuperarTextoDiv("infoSueldo");
+    let cmpSueldo = parseInt(sueldo);
+    let descuento = recuperarTexto("txtDescuentos");
+    let descuentoFloat = parseFloat(descuento);
+    if(descuentoFloat <= 0 || isNaN(cmpSueldo)){
+        alert("DEBE BUSCAR PRIMERO UN EMPLEADO VALIDO ANTES DE GENERAR UN ROL");
+        return ;
+    }
+    let calculoAporte = calcularAporteEmpleado(cmpSueldo);
+    mostrarTexto ("infoIESS",calculoAporte);
+    let cmpValorAPago = calcularValorAPagar(cmpSueldo,calculoAporte,descuentoFloat);
+    mostrarTexto("infoPago",cmpValorAPago);
+ }
+
+
 
 //empleado
 mostrarEmpleado = function(){
