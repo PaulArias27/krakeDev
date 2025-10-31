@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="orden.js"></script>
+        <script src="utilitarios.js"></script>
+        <link rel="stylesheet" href="placas.css"/>
+    </head>
+    <body onload="mostrarOpcionPersona();">
+        <div class="contenedor">
+            <div class="titulo">
+                NOMBRE
+            </div>
+            <div class="caja">
+                <input type="text" id="txtNombre">
+            </div>
+            <div class="titulo">
+                EDAD
+            </div>
+            <div class="caja">
+                <input type="text" id="txtEdad">
+            </div>
+            <div class="centroBoton">
+                <input type="button" value="GUARDAR" class="boton" onclick="validarPlaca();"/>
+                <input type="button" value="ENCONTRAR MAYOR" class="boton" onclick="determinarMayor();"/>
+                <input type="button" value="ENCONTRAR MENOR" class="boton" onclick="determinarMenor();"/>
+            </div>
+            <div  class="validacion" id="tabla">
+
+            </div>
+            <div  class="validacion" id="mayor">
+
+            </div>
+            <div  class="validacion" id="menor">
+
+            </div>
+        </div>
+    </body>
+</html>
