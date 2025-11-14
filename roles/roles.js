@@ -191,7 +191,7 @@ agregarEmpleado = function(empleado){
         return false;
     }
 
-}
+} 
 
 guardar = function(){
     let cmpCedula = recuperarTexto("txtCedula");
